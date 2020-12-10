@@ -2,6 +2,7 @@ package services;
 
 import entities.questions.interfaces.Question;
 import processor.Processor;
+import utils.MarkupUtil;
 import utils.QuestionParser;
 
 import java.io.BufferedReader;
@@ -44,7 +45,7 @@ public class FileUploader {
                 while (true){
                     String type = br.readLine();
                     if (type == null) break;
-                    if(type.equals("~~~")) continue;
+                    if(type.equals(MarkupUtil.QUESTION_SPLITTER)) continue;
                     Question currQuestion = qp.getQuestion(type, br);
                     processor.uploadQuestion(currQuestion);
                 }

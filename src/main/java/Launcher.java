@@ -4,6 +4,7 @@ import processor.Processor;
 import services.FileUploader;
 import services.SimpleDatabaseBuilder;
 import services.builder.DatabaseBuilder;
+import utils.MarkupUtil;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -21,7 +22,7 @@ public class Launcher {
 
     public static void main(String[] args) throws IOException {
         Processor processor = new Processor(prepareDatabase());
-        FileUploader fileUploader = new FileUploader(Collections.singletonList("data.txt"), processor);
+        FileUploader fileUploader = new FileUploader(Collections.singletonList(MarkupUtil.TXT_NAME), processor);
         fileUploader.startUpload();
         Server server = new Server(9999, processor);
         ExecutorService executorService = Executors.newSingleThreadExecutor();

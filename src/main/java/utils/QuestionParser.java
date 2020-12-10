@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
+import static utils.MarkupUtil.*;
 
 
 public class QuestionParser {
-    public static final String TEST = "test";
     private final Map<String, Function<BufferedReader, Question>> functionMap ;
 
     public QuestionParser() {
@@ -25,11 +25,11 @@ public class QuestionParser {
             while(true){
                 String reading = reader.readLine();
                 body.append(reading).append(" ");
-                if(reading.endsWith("?") || reading.endsWith(".")) break;
+                if(reading.endsWith(QUESTION_BODY_END[0]) || reading.endsWith(QUESTION_BODY_END[1])) break;
             }
             Map<String, Double> answers = new HashMap<>();
             while(true){
-                String[] probAnswer = reader.readLine().split("@");
+                String[] probAnswer = reader.readLine().split(PROB_ANSWERS_REGEX);
                 if(probAnswer.length == 1) break;
                 String answerBody = probAnswer[0];
                 Double answerPoint = Double.parseDouble(probAnswer[1]);
@@ -47,7 +47,7 @@ public class QuestionParser {
             return functionMap.get(type).apply(reader);
         } catch (NullPointerException e){
             System.out.println("Such type of question doesn't exist");
-            while(!reader.readLine().equals("~~~"));
+            while(!reader.readLine().equals(QUESTION_SPLITTER)){}
             return null;
         }
     }
