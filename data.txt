@@ -1,0 +1,32 @@
+test
+How much working registers are in the
+MIPS processor?
+6@0.0
+12@0.0
+16@0.5
+32@1.0
+~~~
+blank
+Singleton class is a class whose only # instance can be created at any given time.
+one
+~~~
+blank
+In Java, # refers to a block of code which is used to initialize an object.
+constructor
+~~~
+test
+what is cookie in java?
+text data sent by server to the client@1.0
+biscuit@-0.5
+type of inheritance@-0.5
+~~~
+test
+What do you mean by an interface in Java?
+blueprint of a class@1.0
+overridden method@-0.5
+type of inheritance@-0.5
+~~~
+blank
+Method Overriding # existing behavior of the method
+changes
+~~~
