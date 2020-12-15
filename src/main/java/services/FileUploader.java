@@ -24,6 +24,7 @@ public class FileUploader {
 
     public void startUpload(){
         ExecutorService executorService = Executors.newCachedThreadPool();
+        System.out.println(files);
         for(String filename : files){
             Worker worker = new Worker(filename);
             executorService.execute(worker::startJob);
