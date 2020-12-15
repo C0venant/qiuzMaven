@@ -4,8 +4,8 @@ import entities.ScoringEngine;
 import entities.questions.interfaces.Question;
 import entities.quiz.interfaces.Quiz;
 import processor.Processor;
-import services.SimpleQuizBuilder;
-import services.builder.QuizBuilder;
+import services.builder.simpleImplementations.SimpleQuizBuilder;
+import services.builder.interfaces.QuizBuilder;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package services.builder;
+package services.builder.interfaces;
 
 import database.interfaces.Database;
 

@@ -1,8 +1,9 @@
-package services;
+package services.builder.simpleImplementations;
 
 import entities.questions.interfaces.Question;
 import entities.quiz.interfaces.Quiz;
-import services.builder.QuizBuilder;
+import services.builder.interfaces.QuizBuilder;
+import services.builder.simpleImplementations.SimpleQuiz;
 
 import java.util.*;
 

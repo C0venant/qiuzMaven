@@ -7,8 +7,8 @@ import java.util.List;
 
 public class ScoringEngine {
 
-    private Quiz quiz;
-    private List<String> answers;
+    private final Quiz quiz;
+    private final List<String> answers;
 
     public ScoringEngine(Quiz quiz, List<String> answers){
         this.quiz = quiz;

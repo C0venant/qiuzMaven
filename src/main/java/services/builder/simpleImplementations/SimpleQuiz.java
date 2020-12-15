@@ -1,4 +1,4 @@
-package services;
+package services.builder.simpleImplementations;
 
 import entities.questions.interfaces.Question;
 import entities.quiz.interfaces.Quiz;

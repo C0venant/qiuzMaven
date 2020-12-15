@@ -1,15 +1,14 @@
 import Server.Server;
 import database.interfaces.Database;
 import processor.Processor;
-import services.FileUploader;
-import services.SimpleDatabaseBuilder;
-import services.builder.DatabaseBuilder;
+import services.textFile.FileUploader;
+import services.builder.simpleImplementations.SimpleDatabaseBuilder;
+import services.builder.interfaces.DatabaseBuilder;
 import utils.MarkupUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
