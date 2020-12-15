@@ -13,21 +13,19 @@ A public void main(String[] args)
 B public static void main()
 C private static void start(String[] mydata)
 D public static final void main(String[] mydata)
-2 
+2
 3 The following class diagram demonstrates the relationship betweenGoldandSilver, which extend theMetalclass. Assume the attributes are all declaredpublic. Which statement about the diagram is not true?
-
-4 
 A The diagram demonstrates platform independence in Java.
 B The diagram demonstrates object-oriented design in Java.
 C TheGoldandSilverclasses inheritweightandcolorattributes from theMetalclass.
 D Golddoes not inherit thelusterattribute.
-5 
+5
 6 What is the proper filename extension for a Java bytecode compiled file?
 A .java
 B .bytecode
 C .class
 D .dll
-7 
+7
 8 Given that aDateclass exists in both thejava.utilandjava.sqlpackages, what is the result of compiling the following class?
 9 1: import java.util.*;
 10 2: import java.sql.*;
@@ -39,37 +37,37 @@ A The code does not compile because of lines 1 and 2.
 B The code does not compile because of line 4.
 C The code does not compile because of line 5.
 D The code compiles without issue.
-15 
+15
 16 Which of the following is not a facet of traditional object-oriented programming languages?
 A Objects are grouped as procedures, separate from the data they act on.
 B An object can take many forms via casting.
 C An object can hold data, referred to as attributes.
 D An object can perform actions, via methods.
-17 
+17
 18 Which variables have a scope limited to a method?
 A Interface variables
 B Class variables
 C Instance variables
 D Local variables
-19 
+19
 20 Which package is imported into every Java class by default?
 A java.util
 B java.lang
 C system.lang
 D java.system
-21 
+21
 22 Which of the following is not a valid code comment in Java?
 A // Add 5 to the result
 B /*** TODO: Fix bug 12312 ***/
 C # Add configuration value
 D /* Read file from system ****/
-23 
+23
 24 Which statement about a valid.javafile is true?
 A It can only contain one class declaration.
 B It can contain onepublicclass declaration and onepublicinterface definition.
 C It must define at least onepublicclass.
 D It may define at most onepublicclass.
-25 
+25
 26 Given the following application, fill in the missing values in the table starting from the top and going downward.
 27 package competition;
 28 public class Robot {
@@ -89,19 +87,17 @@ D It may define at most onepublicclass.
 42 _______
 43 Local
 44 _______
-45 
-
 A 2, 0, 1
 B 2, 2, 1
 C 1, 0, 1
 D 0, 2, 1
-46 
+46
 47 Which statement aboutimportstatements is true?
 A The class will not compile if it contains unusedimportstatements.
 B Unusedimportstatements can be removed from the class without causing a class to become unable to be compiled.
 C The class will not compile if a duplicateimportstatement is present.
 D If a class contains animportstatement for a class used in the program that cannot be found, it can still compile.
-48 
+48
 49 What is the result of compiling and executing the following class?
 50 1: public class ParkRanger {
 51 2:    int birds = 10;
@@ -114,7 +110,7 @@ A It does not compile.
 B It compiles but throws an exception at runtime.
 C It compiles and outputs5.
 D It compiles and outputs15.
-57 
+57
 58 Which statements about Java are true?
 I Thejavacommand can execute.javaand.classfiles.
 II Java is not object oriented.
@@ -123,19 +119,19 @@ A I only
 B III only
 C II and III
 D None are true.
-59 
+59
 60 Which of the following lines of code is not allowed as the first line of a Java class file?
 A import widget.*;
 B // Widget Manager
 C package sprockets;
 D int facilityNumber;
-61 
+61
 62 Which one of the following statements is true about using packages to organize your code in Java?
 A Every class is required to include a package declaration.
 B To create a new package, you need to add apackage.initfile to the directory.
 C Packages allow you to limit access to classes, methods, or data from classes outside the package.
 D It is not possible to restrict access to objects and methods within a package.
-63 
+63
 64 Given that the current directory is/user/home, with an application Java file in/user/home/Manager.javathat uses the default package, which are the correct commands to compile and run the application in Java?
 A javac Manager
 B java Manager
@@ -145,13 +141,13 @@ E javac Manager
 F java Manager.class
 G javac Manager.java
 H java Manager.class
-65 
+65
 66 Structuring a Java class such that only methods within the class can access its instance variables is referred to as _______.
 A platform independence
 B object orientation
 C inheritance
 D encapsulation
-67 
+67
 68 What is the output of the following code snippet?
 69 String tree = "pine";
 70 int count = 0;
@@ -164,19 +160,19 @@ A 1
 B 55
 C 56
 D It does not compile.
-76 
+76
 77 Which of the following is true of a Java bytecode file?
 A It can be run on any computer with a compatible JVM.
 B It can only be executed on the same type of computer that it was created on.
 C It can be easily read and modified in a standard text editor.
 D It requires the corresponding.javathat created it to execute.
-78 
+78
 79 What is the correct character for terminating a statement in Java?
 A A colon (:)
 B An end-of-line character
 C A tab character
 D A semicolon (;)
-80 
+80
 81 What is the result of compiling and executing the following class?
 82 1: public class Tolls {
 83 2:    private static int yesterday = 1;
@@ -191,7 +187,7 @@ A The code does not compile due to line 6.
 B The code does not compile due to line 7.
 C 31
 D 61
-91 
+91
 92 Given the following class definition, which is the only line that does not contain a compilation error?
 93 1: public ThisClassDoesNotCompile {
 94 2:    double int count;
@@ -201,25 +197,25 @@ A Line 1
 B Line 2
 C Line 3
 D Line 4
-97 
+97
 98 Which of the following features allows a Java class to be run on a wide variety of computers and devices?
 A Encapsulation
 B Object oriented
 C Inheritance
 D Platform independence
-99 
+99
 100 Which of the following is not a property of a JVM?
 A It prevents Java bytecode from being easily decoded/decompiled.
 B It supports platform independence.
 C It manages memory for the application.
 D It translates Java instructions to machine instructions.
-101 
+101
 102 Which of the following variables are always in scope for the entire program?
 A Package variables
 B Class variables
 C Instance variables
 D Local variables
-103 
+103
 104 Given the following wildcardimportstatements, which class would be included in the import?
 105 import television.actor.*;
 106 import movie.director.*;
@@ -227,20 +223,19 @@ A television.actor.recurring.Marie
 B movie.directors.John
 C television.actor.Package
 D movie.NewRelease
-107 
+107
 108 Which is the correct order of statements for a Java class file?
 A importstatements,packagestatement,classdeclaration
 B packagestatement,classdeclaration,importstatement
 C classdeclaration,importstatements,packagedeclaration
 D packagestatement,importstatements,classdeclaration
-109 
+109
 110 Given the following class definition, what is the maximum number ofimportstatements that can be discarded and still have the code compile? For this question, assume that theBlackholeclass is defined only in thestarspackage.
 111 package planetarium;
 112 import java.lang.*;
 113 import stars.*;
 114 import java.lang.Object;
 115 import stars.Blackhole;
-116  
 117 public class Observer {
 118   public void find(Blackhole blackhole) {}
 119 }
@@ -248,7 +243,7 @@ A Zero
 B One
 C Two
 D Three
-120 
+120
 121 Given the following class definition, which command will cause the application to output the messageWhite-tailed?
 122 package forest;
 123 public class Deer {
@@ -260,21 +255,21 @@ A java forest.Deer deer 5 "White-tailed deer"
 B java forest.Deer "White-tailed deer" deer 3
 C java forest.Deer Red deer White-tailed deer
 D java forest.Deer My "deer White-tailed"
-128 
+128
 129 Which of the following is a true statement?
 A Thejavacommand compiles a.javafile into a.classfile.
 B Thejavaccommand compiles a.javafile into a.classfile.
 C Thejavacommand compiles a.classfile into a.javafile.
 D Thejavaccommand compiles a.classfile into a.javafile.
-130 
+130
 131 Which of the following statements about Java is true?
 A Java is a procedural programming language.
 B Java allows method overloading.
 C Java allows operator overloading.
 D Java allows direct access to objects in memory.
-132 
+132
 133 Given the following code, what values inserted in order into the blank lines, allow the code to compile?
-134_______agent;
+134 _______agent;
 135 public  _______Banker {
 136   private static  _______getMaxWithdrawal() {
 137       return 10;
@@ -284,7 +279,7 @@ A import,class,null
 B import,interface,void
 C package,int,int
 D package,class,long
-140 
+140
 141 What is the output of the following application?
 142 public class Airplane {
 143   static int start = 2;
@@ -305,25 +300,25 @@ A 2 5
 B 8 5
 C 6 5
 D The code does not compile.
-157 
+157
 158 What is one of the most important reasons that Java supports extending classes via inheritance?
 A Inheritance requires that a class that extends another class be in the same package.
 B The program must spend extra time/resources at runtime jumping through multiple layers of inheritance to determine precise methods and variables.
 C Method signature changes in parent classes may break subclasses that use overloaded methods.
 D Developers minimize duplicate code in new classes by sharing code in a common parent class.
-159 
+159
 160 Which of the following is a valid code comment in Java?
 A //////// Walk my dog
 B #! Go team!
 C / Process fails at runtime /
 D None of the above
-161 
+161
 162 Which of the following method signatures is not a valid declaration of an entry point in a Java application?
 A public static void main(String... arguments)
 B public static void main(String arguments)
 C public static final void main(String[] arguments)
 D public static void main(String[] arguments)
-163 
+163
 164 Given the fileMagnet.javabelow, which of the marked lines can you independently insert the linepublic String color;into and still have the code compile?
 165 // line a1
 166 public class Magnet {
@@ -337,19 +332,19 @@ A a1anda3
 B a2anda4
 C a2,a3, anda4
 D a1,a2,a3, anda4
-173 
+173
 174 What is required to define a valid Java class file?
 A Aclassdeclaration
 B Apackagestatement
 C At least oneimportstatement
 D Thepublicmodifier
-175 
+175
 176 What is the proper filename extension for a Java source file?
 A .jav
 B .class
 C .source
 D .java
-177 
+177
 178 Given that aMathclass exists in both thejava.langandpocket.complexpackages, what is the result of compiling the following class?
 179 1: package pocket;
 180 2: import pocket.complex.*;
@@ -363,7 +358,7 @@ A The code does not compile because of line 2.
 B The code does not compile because of line 3.
 C The code does not compile because of line 6.
 D The code compiles without issue.
-187 
+187
 188 Given a class that uses the followingimportstatements, which class would not be automatically accessible within the class without using its full package name?
 189 import dog.*;
 190 import dog.puppy.*;
@@ -371,19 +366,18 @@ A dog.puppy.female.KC
 B dog.puppy.Georgette
 C dog.Webby
 D java.lang.Object
-191 
+191
 192 _______is the technique of structuring programming data as a unit consisting of attributes, with actions defined on the unit.
 A Encapsulation
 B Object orientation
 C Platform independence
 D Polymorphism
-193 
+193
 194 Given the following class definition, what is the maximum number ofimportstatements that can be discarded and still have the code compile? For this question, assume that theBroccoliclass is in thefood.vegetablespackage, and theAppleclass is thefood.fruitpackage.
 195 package food;
 196 import food.vegetables.*;
 197 import food.fruit.*;
 198 import java.util.Date;
-199  
 200 public class Grocery {
 201   Apple a; Broccoli b;  Date c;
 202 }
@@ -391,7 +385,7 @@ A 0
 B 1
 C 2
 D 3
-203 
+203
 204 Given the following application, what is the expected output?
 205 public class Keyboard {
 206   private boolean numLock = true;
@@ -404,7 +398,7 @@ A true false
 B false false
 C It does not compile.
 D It compiles but throws an exception at runtime.
-212 
+212
 213 What is the result of compiling and executing the following class?
 214 public class RollerSkates {
 215   static int wheels = 1;
@@ -419,7 +413,7 @@ A The code does not compile.
 B 5
 C 10
 D 20
-223 
+223
 224 What is the result of compiling and executing the following class?
 225 package sports;
 226 public class Bicycle {
@@ -436,7 +430,7 @@ A red
 B purple
 C blue
 D It does not compile.
-236 
+236
 237 Which statements about calling the compilation commandjavacand the execution commandjavaare true?
 I javamay use a period.to separate packages.
 II javactakes a.javafile and returns a.classfile.
@@ -445,7 +439,7 @@ A I only
 B II only
 C I and II
 D I, II, and III
-238 
+238
 239 What is the result of compiling and executing the following application?
 240 package forecast;
 241 public class Weather {
@@ -459,10 +453,8 @@ A true
 B false
 C It does not compile.
 D It compiles but throws an error at runtime.
-248 
+248
 249 Given the following class diagram, which Java implementation most closely matches this structure?
-
-250 
 A public class Book {
 B    public int numOfPages;
 C public class Book {
@@ -472,7 +464,7 @@ F    public int numberOfPages;
 G    public String getRating() {return null;} }
 H public class Book {
 I    void numberOfPages; }
-251 
+251
 252 Which statement about the JVM is true?
 A The JVM schedules garbage collection on a predictable schedule.
 B The JVM ensures that the application will always terminate.
