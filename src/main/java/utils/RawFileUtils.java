@@ -5,12 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RawFileUtils {
-    public static final String RAW_DATA_FOLDER = "src/main/resources/rawFiles";
-    public static final String MARKUP_DATA_FOLDER = "src/main/resources/markUpFiles";
     private static String readLine = "";
 
     private static Map<Integer, String> getCorrectAnswers(String fileName) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(RAW_DATA_FOLDER + "/" + fileName));
+        BufferedReader br = new BufferedReader(new FileReader(MarkupUtil.RAW_DATA_FOLDER + "/" + fileName));
         HashMap<Integer, String> answers = new HashMap<>();
         while (true) {
             String rawAnswer = br.readLine();
@@ -44,7 +42,8 @@ public class RawFileUtils {
             while (readLine != null && !Character.isDigit(readLine.charAt(0))) {
                 String point = "0.0";
                 if (correctAnswer.charAt(0) == readLine.charAt(0)) point = "1.0";
-                probAnswers.append("\n").append(readLine).append(MarkupUtil.PROB_ANSWERS_REGEX).append(point);
+                String probAnswer = readLine.substring(2);
+                probAnswers.append("\n").append(probAnswer).append(MarkupUtil.PROB_ANSWERS_REGEX).append(point);
                 readLine = reader.readLine();
             }
         }
@@ -54,6 +53,7 @@ public class RawFileUtils {
     private static void writeInFile(BufferedWriter writer, String bodyStr, String probAnswersStr) throws IOException {
         String wholeQuestion =
                 MarkupUtil.TEST + "\n" + bodyStr +
+                        MarkupUtil.QUESTION_BODY_END +
                         probAnswersStr + "\n" +
                         MarkupUtil.QUESTION_SPLITTER + "\n";
         writer.write(wholeQuestion);
@@ -61,8 +61,8 @@ public class RawFileUtils {
     }
 
     public static String rawToMarkupFile(String questionsFile, String answersFile) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(RAW_DATA_FOLDER + "/" + questionsFile));
-        String newMarkupFileStr = MARKUP_DATA_FOLDER + "/" + System.currentTimeMillis() + ".txt";
+        BufferedReader reader = new BufferedReader(new FileReader(MarkupUtil.RAW_DATA_FOLDER + "/" + questionsFile));
+        String newMarkupFileStr = MarkupUtil.MARKUP_DATA_FOLDER + "/" + System.currentTimeMillis() + ".txt";
         File markupFile = new File(newMarkupFileStr);
         markupFile.createNewFile();
         BufferedWriter writer = new BufferedWriter(new FileWriter(markupFile.getAbsolutePath()));

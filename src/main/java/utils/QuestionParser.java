@@ -25,7 +25,7 @@ public class QuestionParser {
             while(true){
                 String reading = reader.readLine();
                 body.append(reading).append(" ");
-                if(reading.endsWith(QUESTION_BODY_END[0]) || reading.endsWith(QUESTION_BODY_END[1])) break;
+                if(reading.endsWith(QUESTION_BODY_END)) break;
             }
             Map<String, Double> answers = new HashMap<>();
             while(true){
@@ -35,7 +35,8 @@ public class QuestionParser {
                 Double answerPoint = Double.parseDouble(probAnswer[1]);
                 answers.put(answerBody, answerPoint);
             }
-            return new TestQuestion(body.toString(), answers);
+            String bodyStr = body.substring(0, body.length() - QUESTION_BODY_END.length() - 1);
+            return new TestQuestion(bodyStr, answers);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,7 +48,7 @@ public class QuestionParser {
             return functionMap.get(type).apply(reader);
         } catch (NullPointerException e){
             System.out.println("Such type of question doesn't exist");
-            while(!reader.readLine().equals(QUESTION_SPLITTER)){}
+            while(reader.readLine() != null && !reader.readLine().equals(QUESTION_SPLITTER)){}
             return null;
         }
     }

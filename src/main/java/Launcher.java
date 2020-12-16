@@ -22,7 +22,7 @@ public class Launcher {
     }
 
     public static void main(String[] args) throws IOException {
-        File folder = new File(MarkupUtil.RESOURCE_FOLDER);
+        File folder = new File(MarkupUtil.MARKUP_DATA_FOLDER);
         File[] listOfFiles = folder.listFiles();
         Processor processor = new Processor(prepareDatabase());
         assert listOfFiles != null;
@@ -31,6 +31,5 @@ public class Launcher {
         Server server = new Server(9999, processor);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(server::startServer);
-
     }
 }
