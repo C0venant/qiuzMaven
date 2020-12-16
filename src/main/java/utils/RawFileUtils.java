@@ -7,12 +7,12 @@ import java.util.Map;
 public class RawFileUtils {
     public static final String RAW_DATA_FOLDER = "src/main/resources/rawFiles";
     public static final String MARKUP_DATA_FOLDER = "src/main/resources/markUpFiles";
-    private static String read = "";
+    private static String readLine = "";
 
     private static Map<Integer, String> getCorrectAnswers(String fileName) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(RAW_DATA_FOLDER+ "/" +fileName));
+        BufferedReader br = new BufferedReader(new FileReader(RAW_DATA_FOLDER + "/" + fileName));
         HashMap<Integer, String> answers = new HashMap<>();
-        while (true){
+        while (true) {
             String rawAnswer = br.readLine();
             if (rawAnswer == null) break;
             String answer = rawAnswer.split(" ")[0];
@@ -25,29 +25,27 @@ public class RawFileUtils {
 
     private static String parseBody(BufferedReader reader) throws IOException {
         StringBuilder body = new StringBuilder();
-        int lineNumber = 0;
-        while(read.length() > 3 && Character.isDigit(read.charAt(0))) {
-            read = read.substring(read.indexOf(" ") + 1);
-            if(lineNumber > 0){
-                body.append("\n").append(read);
+        while (readLine.length() > 3 && Character.isDigit(readLine.charAt(0))) {
+            String bodyLine = readLine.substring(readLine.indexOf(" ") + 1);
+            if (body.length() > 0) {
+                body.append("\n").append(bodyLine);
             } else {
-                body.append(read);
+                body.append(bodyLine);
             }
-            read = reader.readLine();
-            lineNumber++;
+            readLine = reader.readLine();
         }
         return body.toString();
     }
 
     private static String parseProbAnswers(BufferedReader reader, Map<Integer, String> correctAnswers, int questionNum) throws IOException {
         StringBuilder probAnswers = new StringBuilder();
-        if(read.charAt(0) == 'A' && read.charAt(1) == ' ') {
+        if (readLine.charAt(0) == 'A' && readLine.charAt(1) == ' ') {
             String correctAnswer = correctAnswers.get(questionNum);
-            while(read != null && !Character.isDigit(read.charAt(0))) {
+            while (readLine != null && !Character.isDigit(readLine.charAt(0))) {
                 String point = "0.0";
-                if(correctAnswer.charAt(0) == read.charAt(0)) point = "1.0";
-                probAnswers.append("\n").append(read).append(MarkupUtil.PROB_ANSWERS_REGEX).append(point);
-                read = reader.readLine();
+                if (correctAnswer.charAt(0) == readLine.charAt(0)) point = "1.0";
+                probAnswers.append("\n").append(readLine).append(MarkupUtil.PROB_ANSWERS_REGEX).append(point);
+                readLine = reader.readLine();
             }
         }
         return probAnswers.toString();
@@ -71,15 +69,15 @@ public class RawFileUtils {
         Map<Integer, String> correctAnswers = getCorrectAnswers(answersFile);
         int questionNum = 1;
 
-        while(true) {
-            read = reader.readLine();
-            if(read == null) break;
+        while (true) {
+            readLine = reader.readLine();
+            if (readLine == null) break;
 
             String bodyStr = parseBody(reader);
-            if(read.isBlank()) continue;
+            if (readLine.isBlank()) continue;
             String probAnswersStr = parseProbAnswers(reader, correctAnswers, questionNum);
 
-            if(!bodyStr.isEmpty()){
+            if (!bodyStr.isEmpty()) {
                 writeInFile(writer, bodyStr, probAnswersStr);
                 questionNum++;
             }
