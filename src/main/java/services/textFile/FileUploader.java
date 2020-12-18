@@ -17,15 +17,15 @@ public class FileUploader {
     List<String> files;
     Processor processor;
 
-    public FileUploader(List<String> files, Processor processor){
+    public FileUploader(List<String> files, Processor processor) {
         this.files = files;
         this.processor = processor;
     }
 
-    public void startUpload(){
+    public void startUpload() {
         ExecutorService executorService = Executors.newCachedThreadPool();
         System.out.println(files);
-        for(String filename : files){
+        for (String filename : files) {
             Worker worker = new Worker(filename);
             executorService.execute(worker::startJob);
         }
@@ -34,7 +34,7 @@ public class FileUploader {
     private class Worker {
         String fileName;
 
-        public Worker(String fileName){
+        public Worker(String fileName) {
             this.fileName = fileName;
         }
 
@@ -43,14 +43,15 @@ public class FileUploader {
             try {
                 QuestionParser qp = new QuestionParser();
                 BufferedReader br = new BufferedReader(new FileReader(fileName));
-                while (true){
+                while (true) {
                     String type = br.readLine();
                     if (type == null) break;
-                    if(type.equals(MarkupUtil.QUESTION_SPLITTER)) continue;
+
                     Question currQuestion = qp.getQuestion(type, br);
                     processor.uploadQuestion(currQuestion);
                 }
-            }catch (IOException ignored){}
+            } catch (IOException ignored) {
+            }
         }
     }
 }

@@ -29,8 +29,14 @@ public class QuestionParser {
             }
             Map<String, Double> answers = new HashMap<>();
             while(true){
-                String[] probAnswer = reader.readLine().split(PROB_ANSWERS_REGEX);
-                if(probAnswer.length == 1) break;
+                String read = reader.readLine();
+                if(read.startsWith(EXP_SPLITTER)){
+                    while(!read.equals(QUESTION_SPLITTER)){
+                        read = reader.readLine();
+                    }
+                    break;
+                }
+                String[] probAnswer = read.split(PROB_ANSWERS_REGEX);
                 String answerBody = probAnswer[0];
                 Double answerPoint = Double.parseDouble(probAnswer[1]);
                 answers.put(answerBody, answerPoint);

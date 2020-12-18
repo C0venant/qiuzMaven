@@ -1,5 +1,7 @@
 package utils;
 
+import entities.questions.implementations.CorrectAnswer;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,16 +9,18 @@ import java.util.Map;
 public class RawFileUtils {
     private static String readLine = "";
 
-    private static Map<Integer, String> getCorrectAnswers(String fileName) throws IOException {
+    private static Map<Integer, CorrectAnswer> getCorrectAnswers(String fileName) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(MarkupUtil.RAW_DATA_FOLDER + "/" + fileName));
-        HashMap<Integer, String> answers = new HashMap<>();
+        HashMap<Integer, CorrectAnswer> answers = new HashMap<>();
         while (true) {
             String rawAnswer = br.readLine();
             if (rawAnswer == null) break;
             String answer = rawAnswer.split(" ")[0];
             int len = answer.length();
             if (len == 0 || !Character.isDigit(answer.charAt(0)) || answer.charAt(len - 1) != '.') continue;
-            answers.put(Integer.parseInt(answer.substring(0, len - 2)), answer.substring(len - 2, len - 1));
+            String exlpanation = rawAnswer.substring(rawAnswer.indexOf(" ") + 1);
+            answers.put(Integer.parseInt(answer.substring(0, len - 2)),
+                    new CorrectAnswer(answer.substring(len - 2, len - 1), exlpanation));
         }
         return answers;
     }
@@ -35,17 +39,22 @@ public class RawFileUtils {
         return body.toString();
     }
 
-    private static String parseProbAnswers(BufferedReader reader, Map<Integer, String> correctAnswers, int questionNum) throws IOException {
+    private static String parseProbAnswers(BufferedReader reader, Map<Integer, CorrectAnswer> correctAnswers, int questionNum) throws IOException {
         StringBuilder probAnswers = new StringBuilder();
         if (readLine.charAt(0) == 'A' && readLine.charAt(1) == ' ') {
-            String correctAnswer = correctAnswers.get(questionNum);
+            CorrectAnswer correctAnswer = correctAnswers.get(questionNum);
+            String answer = correctAnswer.getAnswer();
+            String explanation = correctAnswer.getExplanation();
             while (readLine != null && !Character.isDigit(readLine.charAt(0))) {
                 String point = "0.0";
-                if (correctAnswer.charAt(0) == readLine.charAt(0)) point = "1.0";
-                String probAnswer = readLine.substring(2);
-                probAnswers.append("\n").append(probAnswer).append(MarkupUtil.PROB_ANSWERS_REGEX).append(point);
+                if (answer.charAt(0) == readLine.charAt(0)) point = "1.0";
+                probAnswers.append("\n").append(readLine).append(MarkupUtil.PROB_ANSWERS_REGEX).append(point);
                 readLine = reader.readLine();
             }
+            if (explanation.isEmpty()) explanation = MarkupUtil.EMPTY_EXP;
+            probAnswers.append("\n").
+                    append(MarkupUtil.EXP_SPLITTER).append("\n").
+                    append(explanation);
         }
         return probAnswers.toString();
     }
@@ -66,7 +75,7 @@ public class RawFileUtils {
         File markupFile = new File(newMarkupFileStr);
         markupFile.createNewFile();
         BufferedWriter writer = new BufferedWriter(new FileWriter(markupFile.getAbsolutePath()));
-        Map<Integer, String> correctAnswers = getCorrectAnswers(answersFile);
+        Map<Integer, CorrectAnswer> correctAnswers = getCorrectAnswers(answersFile);
         int questionNum = 1;
 
         while (true) {
